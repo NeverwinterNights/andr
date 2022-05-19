@@ -199,9 +199,6 @@ export const Optimaized = React.memo(() => {
                 <div>sudo systemctl enable {state.defundd} && \</div>
                 <div>sudo systemctl restart {state.defundd} && sudo journalctl -u {state.defundd} -f -o cat</div>
                 <br/>
-                <div><strong>Создаем валидатора</strong></div>
-                <br/>
-
                 <h2>Создаем валидатора</h2>
                 <br/>
                 <div>{state.defundd} tx staking create-validator \</div>
