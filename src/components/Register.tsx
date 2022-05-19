@@ -4,8 +4,12 @@ export const Register = React.memo(() => {
     const [inviter, setInviter] = useState<string>("");
     const [name, setName] = useState<string>("");
     const [profile, setProfile] = useState<string>("");
+    const [wallet, setWallet] = useState<string>("");
+    const [denon, setDenon] = useState<string>("");
+
+
     const inputInviterHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        handler(e.currentTarget.value)
+        setInviter(e.currentTarget.value)
     }
     const inputNameHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setName(e.currentTarget.value)
@@ -13,34 +17,43 @@ export const Register = React.memo(() => {
     const inputProfileHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setProfile(e.currentTarget.value)
     }
+    const inputWalletHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setWallet(e.currentTarget.value)
+    }
+    const inputDenonHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setDenon(e.currentTarget.value)
+    }
+
 
     return (
         <>
             <h2>Title</h2>
             <div className={"row"}>
-                <span>inviter</span>
+                <span>defundd</span>
                 <input onChange={inputInviterHandler} value={inviter}/>
             </div>
             <div className={"row"}>
-                <span>name</span>
+                <span>НАЗВАНИЕ_БИНАРНИКА</span>
                 <input onChange={inputNameHandler} value={name}/>
             </div>
             <div className={"row"}>
-                <span>profile</span>
+                <span>НАЗВАНИЕ_СЕТИ</span>
                 <input onChange={inputProfileHandler} value={profile}/>
             </div>
+            <div className={"row"}>
+                <span>НАЗВАНИЕ КОШЕЛЬКА</span>
+                <input onChange={inputWalletHandler} value={wallet}/>
+            </div>
+            <div className={"row"}>
+                <span>НАЗВАНИЕ_ДЕНОМ</span>
+                <input onChange={inputDenonHandler} value={denon}/>
+            </div>
             <div className={"result"}>
-                <div> gnokey maketx call ADDRESS --pkgpath "gno.land/r/users" --func "Register" --gas-fee 1gnot --gas-wanted 2000000 --send "" --broadcast true --chainid testchain --args "" --args "{inviter}" --args "" --remote gno.land:36657</div>
+
+               <div>defundd init {name} --chain-id=defund-private-1</div>
 
 
-                <div> gnokey query auth/accounts/ --remote gno.land:36657</div>
-                <div> gnokey maketx call --pkgpath "gno.land/r/users" --func "Register"
-                    --gas-fee 1gnot --gas-wanted 2000000 --send "" --args "{inviter}" --args "{name}" {profile} --args "" unsigned.tx
-                </div>
-                <div> gnokey sign  --txpath unsigned.tx --chainid testchain --number  {profile}
-                    ACCOUNTNUMBER --sequence SEQUENCENUMBER signed.tx
-                </div>
-                <div> gnokey broadcast signed.tx --remote gno.land:36657</div>
+
             </div>
         </>
     );
