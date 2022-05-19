@@ -4,7 +4,7 @@ export const Register = React.memo(() => {
     const [inviter, setInviter] = useState<string>("");
     const [name, setName] = useState<string>("");
     const [profile, setProfile] = useState<string>("");
-    const inputInviterHandler = (e: ChangeEvent<HTMLInputElement>, handler: Function) => {
+    const inputInviterHandler = (e: ChangeEvent<HTMLInputElement>) => {
         handler(e.currentTarget.value)
     }
     const inputNameHandler = (e: ChangeEvent<HTMLInputElement>) => {
